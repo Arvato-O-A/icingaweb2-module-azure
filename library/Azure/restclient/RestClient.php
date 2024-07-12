@@ -18,9 +18,6 @@ use \ArrayAccess;
 class RestClientException extends QueryException {}
 
 class RestClient implements Iterator, ArrayAccess {
-    // Declare the properties explicitly
-    private $url;
-    private $errno;
 
     public $options;
     public $handle; // cURL resource handle.
