@@ -18,6 +18,9 @@ use \ArrayAccess;
 class RestClientException extends QueryException {}
 
 class RestClient implements Iterator, ArrayAccess {
+    // Declare the properties explicitly
+    private $url;
+    private $errno;
 
     public $options;
     public $handle; // cURL resource handle.
@@ -205,7 +208,7 @@ class RestClient implements Iterator, ArrayAccess {
 
         if($client->options['base_url']){
             $client->url = sprintf("%s/%s",
-                rtrim((string) $client->options['base_url'], '/'), 
+                rtrim((string) $client->options['base_url'], '/'),
                 ltrim((string) $client->url, '/'));
         }
         $curlopt[CURLOPT_URL] = $client->url;
